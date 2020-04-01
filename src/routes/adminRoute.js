@@ -22,6 +22,9 @@ app.get(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
 
 app.post(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
     
+    // save which user is logged in
+    const user = await User.findOne({ _id: req.validCookie.user._id });
+
      // getting the url from admin input and sort it to get artist and album as strings.
     const urlFromAdmin = req.body.url;
     const arrayFromUrlFromAdmin = urlFromAdmin.split("/");
@@ -32,7 +35,7 @@ app.post(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
     const data = await getLastFmData(artist, album);
 
     if (data.error) {
-        res.render(VIEW.admin, { user: undefined, invalidAlbum: false, albumAdded: false, existingAlbum: false, error: true });
+        res.render(VIEW.admin, { user, invalidAlbum: false, albumAdded: false, existingAlbum: false, error: true });
     }
 
     // manipulating the image URL to get a 1280x1280px
@@ -48,11 +51,12 @@ app.post(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
 
     if (!data.album.wiki) { 
 
-        res.render(VIEW.admin, { user: undefined, invalidAlbum: true, data, albumAdded: false, existingAlbum: false, error: false });
+        res.render(VIEW.admin, { user, invalidAlbum: true, data, albumAdded: false, existingAlbum: false, error: false });
 
     } else if (foundAlbum){
 
-        res.render(VIEW.admin, { user: undefined, invalidAlbum: false, data, albumAdded: false, existingAlbum: true, error: false });
+        // console.log("user at post foundAlbum: ", user);
+        res.render(VIEW.admin, { user, invalidAlbum: false, data, albumAdded: false, existingAlbum: true, error: false });
 
     } else {
         
@@ -86,8 +90,8 @@ app.post(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
 
         console.log("NEW ALBUM IN DB > ", newAlbumInDb);
 
-        // check which user is logged in
-        const user = await User.findOne({ _id: req.validCookie.user._id });
+        // // check which user is logged in
+        // const user = await User.findOne({ _id: req.validCookie.user._id });
 
         // add the newly added album to the adminAlbums property in the admin user actually logged in.
         await user.addAdminAlbums(newAlbumInDb);

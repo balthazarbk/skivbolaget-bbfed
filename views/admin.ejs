@@ -21,7 +21,7 @@
         <br />
     
         <% if (error) { %>
-        <p>We can't handle your request, please choose another album without the following characters: "…".</p>
+        <p>We can't handle your request, please choose another album.</p>
         <% } %>
     
         <% if (invalidAlbum) { %>
@@ -46,7 +46,7 @@
             <% user.adminAlbums.forEach(album => { %>
             <li><em><%= album.name %></em> by <%= album.artist %>&nbsp;&nbsp;<span class="removeAdminAlbum"
                     style="font-size: small"><a href="/removeadminalbum/<%= album._id %>/<%= album.itemId %>"
-                        style="color:grey">DELETE THIS ALBUM FROM YOUR COLLECTION</a></span></li>
+                        style="color:grey" id="remove-admin-album">DELETE THIS ALBUM FROM YOUR COLLECTION</a></span></li>
             <% }) %>
         </ul>
         <% } %>

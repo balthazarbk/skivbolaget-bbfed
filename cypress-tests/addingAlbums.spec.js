@@ -9,7 +9,7 @@ context("Admin page", () => {
         cy.url().should('eq', 'http://localhost:4000/admin');
     })
 
-    it("Add 30 albums and go to root location", () => {
+    it("Add 18 albums", () => {
         
         cy.get('#urlLastFm').type('https://www.last.fm/music/Madonna/The+Immaculate+Collection').should('have.value', 'https://www.last.fm/music/Madonna/The+Immaculate+Collection');
         cy.get('#post-album-form').submit();
@@ -65,44 +65,11 @@ context("Admin page", () => {
         cy.get('#urlLastFm').type('https://www.last.fm/music/Bryson+Tiller/T+R+A+P+S+O+U+L').should('have.value', 'https://www.last.fm/music/Bryson+Tiller/T+R+A+P+S+O+U+L');
         cy.get('#post-album-form').submit();
 
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Bryson+Tiller/True+to+Self').should('have.value', 'https://www.last.fm/music/Bryson+Tiller/True+to+Self');
-        cy.get('#post-album-form').submit();
 
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Trey+Songz/Ready').should('have.value', 'https://www.last.fm/music/Trey+Songz/Ready');
-        cy.get('#post-album-form').submit();
+        // Delete the first 2 albums (cause: wrong price setting by progress to do in setPrice function)
 
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Sam+Cooke/The+Man+and+His+Music').should('have.value', 'https://www.last.fm/music/Sam+Cooke/The+Man+and+His+Music');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Drake/Views').should('have.value', 'https://www.last.fm/music/Drake/Views');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Drake/Take+Care').should('have.value', 'https://www.last.fm/music/Drake/Take+Care');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Drake/Thank+Me+Later').should('have.value', 'https://www.last.fm/music/Drake/Thank+Me+Later');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Drake/So+Far+Gone').should('have.value', 'https://www.last.fm/music/Drake/So+Far+Gone');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Foo+Fighters/The+Colour+and+the+Shape').should('have.value', 'https://www.last.fm/music/Foo+Fighters/The+Colour+and+the+Shape');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Foo+Fighters/Echoes,+Silence,+Patience+&+Grace').should('have.value', 'https://www.last.fm/music/Foo+Fighters/Echoes,+Silence,+Patience+&+Grace');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Foo+Fighters/There+Is+Nothing+Left+to+Lose').should('have.value', 'https://www.last.fm/music/Foo+Fighters/There+Is+Nothing+Left+to+Lose');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Foo+Fighters/One+by+One').should('have.value', 'https://www.last.fm/music/Foo+Fighters/One+by+One');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Lady+Gaga/The+Fame').should('have.value', 'https://www.last.fm/music/Lady+Gaga/The+Fame');
-        cy.get('#post-album-form').submit();
-
-        cy.get('#urlLastFm').type('https://www.last.fm/music/Lady+Gaga/Born+This+Way').should('have.value', 'https://www.last.fm/music/Lady+Gaga/Born+This+Way');
-        cy.get('#post-album-form').submit();
+        cy.get('#remove-admin-album').click();
+        cy.get('#remove-admin-album').click();
 
     });
 

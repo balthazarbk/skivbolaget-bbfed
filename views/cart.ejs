@@ -14,25 +14,17 @@
 
         <p>Hello <%= user.status %>, here is the content of your cart:</p>
         <div class="cartContainer">
-            <% user.cart.forEach(album => { %>
-
-            <div class="info">
-                <div class="image"><%= album.image %></div>
-                <div class="album"><%= album.name %></div>
-                <div class="artist"><%= album.artist %></div>
-                <div class="price"><%= album.price %></div>
-
-                <% }); %>
-            </div>
-        </div>
-        <!-- <ul>
-            <% user.cart.forEach(album => { %>
-            <li><strong>Album name: <%= album.name %></strong></li>
-            <li>Artist of the album: <%= album.artist %></li>
-            <li>Price: <%= album.price %></li>
             <br />
+            <% user.cart.forEach(album => { %>
+            <div class="info">
+                <p class="album"><i><%= album.name %></i> by <%= album.artist %></p>
+                <p class="price"><%= album.price %> SEK</p>
+            </div>
+            <br />
+
             <% }); %>
-        </ul> -->
+
+        </div>
         <p>You are not a registered user, please <a href="/signup">sign up</a> and login to proceed to checkout and
             place
             your order.</p>
@@ -74,10 +66,8 @@
     <p>Hello <%= user.username %>, you have the status of <%= user.status %> and don't have the possibility to add
         item
         to your cart. Please go to:</p>
-    <ul>
-        <li><a href="/">Main.</a></li>
-        <li><a href="/admin">Admin page.</a></li>
-    </ul>
+    <a href="/" style="color:aliceblue">Main</a><br />
+    <a href="/admin" style="color:aliceblue">Admin page</a>
     <% } %>
 
 </body>
