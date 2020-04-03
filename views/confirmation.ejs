@@ -6,6 +6,23 @@
     <h1>Confirmation page</h1>
     <br />
 
+    <h2>Congratulation <%= order.username %>, the payment is successful!</h2>
+    <h4>Here is a summary of your order:</h4>
+    <ul>
+        <li>Order number: <strong><%= order.orderNumber %></strong></li>
+        <li>An email will be sent soon to <%= order.email %> to confirm that your payment is made and your product will be delivered right after.</li>
+        <li>Your invoice information are: 
+            <ul>
+                <li>Fullname: <%= order.invoiceInfo.fullName %></li>
+                <li>Address: <%= order.invoiceInfo.address %>, <%= order.invoiceInfo.zip %> <%= order.invoiceInfo.city %>, <%= order.invoiceInfo.state %></li>
+            </ul>
+        </li>
+        
+        <li>Payment amount: <%= order.totalPrice %> SEK.</li>
+        <li>sessionId from Stripe (DEV only): <%= order.sessionId %></li>
+        <li>userId (DEV only): <%= order.userId %></li>
+    </ul>
+
     <a href="/" style="color:bisque">Main page</a>
     </div>
 

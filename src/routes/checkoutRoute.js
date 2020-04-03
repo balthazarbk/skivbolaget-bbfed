@@ -27,7 +27,7 @@ app.get(ROUTE.checkout, verifyToken, checkUser, async (req, res) => {
         line_items: user.cart.map( (item) => {
             return {
                 name: item.name,
-                amount: item.price * 100, // öre * 100 = 1 kronor
+                amount: item.price * 100, // öre * 100 = 1 SEK
                 quantity: 1, 
                 currency: "sek"
             }

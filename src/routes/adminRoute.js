@@ -90,9 +90,6 @@ app.post(ROUTE.admin, verifyToken, checkAdmin, async (req, res) => {
 
         console.log("NEW ALBUM IN DB > ", newAlbumInDb);
 
-        // // check which user is logged in
-        // const user = await User.findOne({ _id: req.validCookie.user._id });
-
         // add the newly added album to the adminAlbums property in the admin user actually logged in.
         await user.addAdminAlbums(newAlbumInDb);
 

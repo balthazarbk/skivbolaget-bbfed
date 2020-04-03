@@ -115,12 +115,12 @@ $break-large: 1200px;
     width: 100%;
     background-color: #18818c;
 }
-.formHeadline{
+.formHeadline {
     display: flex;
     justify-content: center;
     background-color: #0F5259;
 }
-.icon-container{
+.icon-container {
     font-size: 2em;
 }
 .checkoutBtn{
@@ -133,10 +133,10 @@ $break-large: 1200px;
 }
 .checkoutBtn:hover{
     background-color: rgb(29, 112, 12); /* Green */
-        color: white;
+    color: white;
 }
 .checkoutBtnForm{
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 

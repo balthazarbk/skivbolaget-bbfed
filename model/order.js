@@ -3,6 +3,7 @@ const Schema = require("mongoose").Schema;
 
 const orderSchema = new Schema({
     orderNumber: { type: Number, required: true, unique: true },
+    sessionId: { type: String, required: true, unique: true },
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     username: { type: mongoose.Schema.Types.String, ref: 'User' },
     email: { type: mongoose.Schema.Types.String, ref: 'User' },

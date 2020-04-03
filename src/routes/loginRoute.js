@@ -24,7 +24,6 @@ app.get(ROUTE.login, verifyToken, (req, res) => {
 app.post(ROUTE.login, async (req, res) => {
 
     const user = await User.findOne({ username: req.body.username });
-    console.log("USER IS ->", user);
 
     if (!user) return res.render(VIEW.login, { foundUser: false, invalidUser: false });
 
@@ -33,7 +32,7 @@ app.post(ROUTE.login, async (req, res) => {
 
     if (!validUser) return res.render(VIEW.login, { foundUser: true, invalidUser: true });
 
-    jwt.sign({ user }, config.secretKey, (err, token) => { // the string secretKey must come from the config file. 
+    jwt.sign({ user }, config.secretKey, (err, token) => { // the string secretKey must come from the config/env file. 
 
         if (err) return res.redirect("/login");
 
