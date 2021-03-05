@@ -1,27 +1,15 @@
-# Skivbolaget Project Guidelines
+### skivbolaget-bbkfed
+#### An Online Music Store / student project / spring 2020
 
-## Formatting:
-We follow **Google JavaScript Style Guide** except for indentation, we do as Visual Studio Code, Spaces: 4 (in VSC, Menu Code > Settings > Editor:Tab Size to 4).
-
-https://google.github.io/styleguide/jsguide.html
-
-See e.g.:
-* https://google.github.io/styleguide/jsguide.html#formatting-comments
-* https://google.github.io/styleguide/jsguide.html#features-arrays-trailing-comma
-
-## Users structure
-
-#### Permissions / functions for each user status:
-
-- Guest:
-  * can see all the content, on routes "/" and "/album".
-
-- Member:
-  * same as guest
-  * can add/remove an album(s) to the cart.
-  * can pay for the album(s) he or she added.
-  
-- Admin:
-  * same as guest.
-  * can add/remove/edit an album(s) from the library.
-  
+Made in collaboration with others, I was responsible for the back end, the logic, the structure:
+- MVC software design
+- NodeJS / Express Routing
+- Database: MongoDB together with Mongoose
+- using Last.fm API for album data
+- JWT, bcryptjs
+- Admin user login, cookie validation 
+- Payments infrastructure with Stripe
+- Mail notifications with Sendgrid
+- Test-Driven Development: Cypress, Jest, Chai, Mocha, Supertest
+- Templating and styling: EJS, SCSS (styling by my studymates)
+- Deployment on Heroku
